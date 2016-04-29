@@ -20,6 +20,7 @@ db.addUser(
 	}
 );
 
+
 // Step 2: Create admin, reader, writer users for each database.
 // See http://docs.mongodb.org/v2.4/tutorial/add-user-to-database/
 addUsers(connect(primary + ":27017/" + db1));
@@ -37,6 +38,15 @@ function addUsers(database) {
 			roles: [ "readWrite", "dbAdmin" ]
 		}
 	);
+
+	if (paas_env == "prod") {
+		db.user.insert({"email" : "pearsonadmin@pearson.com", "fName" : "Pearson", "lName" : "admin", "name" : "pearsonadmin", "password" : "3f91c8f43e2e09cae33380ed856bf6cd", "roleValue" : "pearson-admin", "thumbnail" : "", "uid" : "padmin", "username" : "padmin" });'
+        }
+	else
+	{
+		db.user.insert({"email" : "pearsonadmin@pearson.com", "fName" : "Pearson", "lName" : "admin", "name" : "pearsonadmin", "password" : "0b230f462ea6a6b7b14590479a40398e", "roleValue" : "pearson-admin", "thumbnail" : "", "uid" : "padmin", "username" : "padmin" });'
+	}
+
 
 //	database.addUser(
 //		{

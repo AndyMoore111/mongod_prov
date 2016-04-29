@@ -30,8 +30,9 @@ local DB_ADMIN_PASS=${MONGO_DB_ADMIN_PASS:-mongoDbAdminPass}
 #local DB_RO_USER=${MONGO_RO_USER:-mongoDbRoPass}
 #local DB_RW_PASS=${MONGO_RW_PASS:-mongoDbRwPass}
 #local DB_RO_PASS=${MONGO_RO_PASS:-mongoDbRoPass}
+local PAASENV=${PAAS_ENV:-dev}
 mongo --nodb --eval \
-"primary='${DB_HOST}',admin_user='${ADMIN_USER}',admin_pass='${ADMIN_PASS}',db1='${DB1}',db_admin_user='${DB_ADMIN_USER}',db_admin_pass='${DB_ADMIN_PASS}'"  /usr/local/bin/mongoAuthn.js
+"primary='${DB_HOST}',admin_user='${ADMIN_USER}',admin_pass='${ADMIN_PASS}',db1='${DB1}',db_admin_user='${DB_ADMIN_USER}',db_admin_pass='${DB_ADMIN_PASS}',paas_env='${PAASENV}'"  /usr/local/bin/mongoAuthn.js
 }
 
 mongo3x ()

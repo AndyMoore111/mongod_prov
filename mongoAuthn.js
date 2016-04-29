@@ -24,9 +24,9 @@ db.addUser(
 // See http://docs.mongodb.org/v2.4/tutorial/add-user-to-database/
 addUsers(connect(primary + ":27017/" + db1));
 
-addUsers(connect(primary + ":27017/" + db2));
+//addUsers(connect(primary + ":27017/" + db2));
 
-addUsers(connect(primary + ":27017/" + db3));
+//addUsers(connect(primary + ":27017/" + db3));
 
 // Add user function to add admin, writer and reader for each database.
 function addUsers(database) {
@@ -38,19 +38,19 @@ function addUsers(database) {
 		}
 	);
 
-	database.addUser(
-		{
-			user: rw_user,
-			pwd: rw_pass,
-			roles: ["readWrite"]
-		}
-	);
+//	database.addUser(
+//		{
+//			user: rw_user,
+//			pwd: rw_pass,
+//			roles: ["readWrite"]
+//		}
+//	);
 
-	database.addUser(
-		{
-			user: ro_user,
-			pwd: ro_pass,
-			roles: ["read"]
-		}
-	);
+//	database.addUser(
+//		{
+//			user: ro_user,
+//			pwd: ro_pass,
+//			roles: ["read"]
+//		}
+//	);
 }
